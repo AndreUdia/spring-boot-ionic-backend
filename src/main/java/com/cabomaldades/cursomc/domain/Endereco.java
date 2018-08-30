@@ -16,6 +16,7 @@ public class Endereco implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	private String logadouro;
 	private String numero;
 	private String complemento;
 	private String bairro;
@@ -33,9 +34,10 @@ public class Endereco implements Serializable {
 		super();
 	}
 
-	public Endereco(Integer id, String numero, String complemento, String bairro, String cep, Cliente cliente, Cidade cidade) {
+	public Endereco(Integer id, String logadouro, String numero, String complemento, String bairro, String cep, Cliente cliente, Cidade cidade) {
 		super();
 		this.id = id;
+		this.setLogadouro(logadouro);
 		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
@@ -56,6 +58,14 @@ public class Endereco implements Serializable {
 		return numero;
 	}
 
+	public String getLogadouro() {
+		return logadouro;
+	}
+
+	public void setLogadouro(String logadouro) {
+		this.logadouro = logadouro;
+	}
+	
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
@@ -125,6 +135,5 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
 }
